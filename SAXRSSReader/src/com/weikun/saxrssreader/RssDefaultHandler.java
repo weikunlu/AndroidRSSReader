@@ -99,13 +99,12 @@ public class RssDefaultHandler extends DefaultHandler implements
 			throws SAXException {
 
 		try {
-			
 			if(excludeTagSet.contains(qName)){
 				return;
 			}
 			
 			if (tmpRssItem == null) {
-
+				
 				if (qName != null && qName.length() > 0) {
 					String methodName = "set"
 							+ qName.substring(0, 1).toUpperCase()
@@ -117,6 +116,7 @@ public class RssDefaultHandler extends DefaultHandler implements
 			} else {
 				if (qName.equals("content:encoded"))
 					qName = "content";
+				
 				String methodName = "set"
 						+ qName.substring(0, 1).toUpperCase()
 						+ qName.substring(1);
@@ -126,7 +126,6 @@ public class RssDefaultHandler extends DefaultHandler implements
 			
 		} catch (Exception e) {
 			Log.w(TAG, "fail with " + qName + ": " +e.getMessage());
-			excludeTagSet.add(qName);
 		} finally {
 			if (sb.length() > 0)
 				sb.delete(0, sb.length());

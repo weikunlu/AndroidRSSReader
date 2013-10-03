@@ -47,7 +47,7 @@ public class RssItem implements Parcelable, Comparable<RssItem> {
 			RssItem item = new RssItem();
 			item.title = data.readString();
 			item.link = data.readString();
-			item.pubDate = (Date)data.readSerializable();
+			item.pubDate = new Date(data.readLong());
 			item.description = data.readString();
 			item.content = data.readString();
 			item.category = data.readString();
@@ -71,7 +71,7 @@ public class RssItem implements Parcelable, Comparable<RssItem> {
 		
 		dest.writeString(title);
 		dest.writeString(link);
-		dest.writeSerializable(pubDate);
+		dest.writeLong(pubDate.getTime());
 		dest.writeString(description);
 		dest.writeString(content);
 		dest.writeString(category);

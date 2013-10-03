@@ -16,7 +16,6 @@
 package com.weikun.saxrssreader;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -39,6 +38,9 @@ public class RssReader {
 
 	public interface RssResultListener{
 		public RssFeed getResult();
+	}
+
+	private RssReader(){
 	}
 	
 	private static XMLReader createXMLReader() throws SAXException{
